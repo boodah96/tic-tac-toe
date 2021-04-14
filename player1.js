@@ -1,4 +1,3 @@
-// const { emit } = require("node:process");
 
 const options = {
     transports: ['websocket'],
@@ -58,12 +57,7 @@ arr2.push(valueOfButton)
     socket.emit("click",arr)
 })
     
-// $("#form1").on("submit",(e)=>{
-//   e.preventDefault()
-//   let msg = e.target.player1.value
-//   // console.log(e.target.player1.value)
-//   socket.emit("msg1",msg)
-// })
+
 })
 
 

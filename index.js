@@ -16,10 +16,7 @@ let client=0;
  let trigger=true;
 io.on('connection', (socket) => {
    // console.log(client,"dddd")
-
-let room="a"
-
-   
+let room="a"   
    client++
     socket.join(room)
 
@@ -41,7 +38,6 @@ let room="a"
     });
     socket.on("click",(value)=>{
        socket.to(room).emit("touched",value)
-    })
-   
+    })   
 });
 server.listen(PORT, () => console.log('Listening on PORT ' + PORT));
