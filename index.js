@@ -18,7 +18,7 @@ io.on('connection', (socket) => {
    // console.log(client,"dddd")
 
 let room="a"
-if(trigger){
+
    
    client++
     socket.join(room)
@@ -39,9 +39,9 @@ if(trigger){
    client--;
    }
     });
-    socket.on("click",()=>{
-       socket.to(room).emit("touched")
+    socket.on("click",(value)=>{
+       socket.to(room).emit("touched",value)
     })
-   }
+   
 });
 server.listen(PORT, () => console.log('Listening on PORT ' + PORT));
