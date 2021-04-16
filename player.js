@@ -20,36 +20,45 @@ $("#wine").hide()
 $("#lose").hide()
 
 $("#game").hide()
-$("#div").text("Waiting")
+
 const player = { name: "player1" }
 socket.on("connect", () => {
   socket.on("waiting", value => {
     playerSymbol = "X"
+    $("#wait").show()
 
+
+    console.log("waiting")
     trigger = true
 
   })
   //----------Start
   socket.on("start", (value) => {
     $("#game").show()
+    $("#wait").hide()
 
+console.log("ee")
     room = value
     $("#div").text("Start")
     if (trigger) {
-
+$("#turn").text("Your Turn")
       $(".button").attr('disabled', false);
 
     } else {
+      $("#turn").text("Opponent Turn")
+
       $(".button").attr('disabled', true);
     }
     //--------When Clicked
   })
   socket.on("touched", (value) => {
+    $("#turn").text("Your Turn")
+
     press = value.press
     if (press == 9) {
       $("#game").hide()
       $("#draw").show()
-      socket.emit("draw")
+      socket.emit("draw",room)
     }
     $(".button").attr("disabled", false)
     if (!trigger) {
@@ -77,6 +86,7 @@ socket.on("connect", () => {
 
   $(".button").on("click", function () {
     press++
+    $("#turn").text("Opponent Turn")
     console.log(press)
     let valueOfButton = $(this).val()
     $(this).text(playerSymbol.toUpperCase())
@@ -96,9 +106,9 @@ socket.on("connect", () => {
     if (checking == playerSymbol) {
       $("#game").hide()
       $("#wine").show()
-      socket.emit("lose")
+      socket.emit("lose",room)
     }
-    socket.emit("click", { arr: arr, press: press })
+    socket.emit("click", { arr: arr, press: press ,room:room})
   })
   socket.on("loser", () => {
     $("#game").hide()
@@ -108,6 +118,13 @@ socket.on("connect", () => {
   socket.on("playerDraw", () => {
     $("#game").hide()
     $("#draw").show()
+  })
+  socket.on("playerDisc",function(){
+    // $(this).load("playerDisc.html");
+
+    window.location.href = "./playerDisc.html";
+
+            console.log("disconnection")
   })
 })
 ///-----function of game
