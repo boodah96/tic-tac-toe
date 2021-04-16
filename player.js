@@ -1,7 +1,7 @@
 const options = {
   transports: ['websocket'],
 };
-const socket = io('localhost:3030/', options); // emmit connection event to server
+const socket = io('localhost:3000/', options); // emmit connection event to server
 let trigger = false;
 let room;
 let arr = []
@@ -47,7 +47,7 @@ socket.on("connect", () => {
   socket.on("touched", (value) => {
     press = value.press
     if (press == 9) {
-      $("#game").hide()
+      // $("#game").hide()
       $("#draw").show()
       socket.emit("draw")
     }
@@ -94,19 +94,19 @@ socket.on("connect", () => {
     }
     let checking = detectTicTacToeWin(x)
     if (checking == playerSymbol) {
-      $("#game").hide()
+      // $("#game").hide()
       $("#wine").show()
       socket.emit("lose")
     }
     socket.emit("click", { arr: arr, press: press })
   })
   socket.on("loser", () => {
-    $("#game").hide()
+    // $("#game").hide()
     $("#lose").show()
 
   })
   socket.on("playerDraw", () => {
-    $("#game").hide()
+    // $("#game").hide()
     $("#draw").show()
   })
 })
