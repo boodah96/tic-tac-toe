@@ -11,7 +11,7 @@ const User= new Data(userModle);
 app.use(cors());
 app.set('view engine', 'html');
 
-const PORT=3000;
+const PORT=3030;
 
 app.get('/signup',handleSignup);
 app.post('/user',handleUsers);
