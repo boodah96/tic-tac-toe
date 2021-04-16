@@ -7,7 +7,7 @@ const server=http.createServer(app);
 const io = require('socket.io')(http);
 const fs =require("fs")
 // const path = require('path');
-const PORT=3030;
+const PORT=3000;
 let currentRoom;
 io.listen(server);
 app.use(cors());
