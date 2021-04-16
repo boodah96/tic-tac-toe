@@ -25,7 +25,8 @@ const player = { name: "player1" }
 socket.on("connect", () => {
   socket.on("waiting", value => {
     playerSymbol = "X"
-    
+    $("#wait").show()
+
 
     console.log("waiting")
     trigger = true
