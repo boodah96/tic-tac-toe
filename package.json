@@ -17,5 +17,10 @@
   "bugs": {
     "url": "https://github.com/boodah96/tic-tac-toe/issues"
   },
-  "homepage": "https://github.com/boodah96/tic-tac-toe#readme"
+  "homepage": "https://github.com/boodah96/tic-tac-toe#readme",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.17.1",
+    "mongoose": "^5.12.4"
+  }
 }
