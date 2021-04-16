@@ -120,8 +120,10 @@ $("#turn").text("Your Turn")
   })
   socket.on("playerDisc",function(){
     // $(this).load("playerDisc.html");
-    $("body").load("playerDisc.html")
-        console.log("disconnection")
+
+    window.location.href = "./playerDisc.html";
+
+            console.log("disconnection")
   })
 })
 ///-----function of game
