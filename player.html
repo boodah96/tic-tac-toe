@@ -25,29 +25,41 @@
 
     </div>   -->
 
-    
-    <div class="board">
+    <div id="game">    
+        <div class="board">
       <h1>Tic Tac Toe</h1>
       <br>
+      <h2 id="turn"></h2>
+
       <br>
+
        <div class="flexrow">
-        <button type="button" name="button1" id="button1" value="" > </button>
-        <button type="button" name="button2" id="button2" value=""> </button>
-        <button type="button" name="button3" id="button3" value=""> </button>
+        <button class="button" name="button1" id="button1" value="1" > </button>
+        <button class="button" name="button2" id="button2" value="2"> </button>
+        <button class="button" name="button3" id="button3" value="3"> </button>
       </div>
         <div class="flexrow">
-        <button type="button" name="button4" id="button4" value=""> </button>
-        <button type="button" name="button5" id="button5" value=""> </button>
-        <button type="button" name="button6" id="button6" value=""> </button>
+        <button class="button" name="button4" id="button4" value="4"> </button>
+        <button class="button" name="button5" id="button5" value="5"> </button>
+        <button class="button" name="button6" id="button6" value="6"> </button>
       </div>
       <div class="flexrow">
-        <button type="button" name="button7" id="button7" value=""> </button>
-        <button type="button" name="button8" id="button8" value=""> </button>
-        <button type="button" name="button9" id="button9" value=""> </button>
+        <button class="button" name="button7" id="button7" value="7"></button>
+        <button class="button" name="button8" id="button8" value="8"></button>
+        <button class="button" name="button9" id="button9" value="9"> </button>
       </div>
       </div>
+    </div>
+    <p id="wait">Waiting</p>
 
-    
+    <div id="wine">Wiiiiiiiiiiiinnnnnnnnnneeeeeeeer <a href="index.html">Home</a>
+    </div>
+    <div id="lose">Loooooooooossseeeeeeer <a href="index.html">Home</a>
+    </div>
+    <div id="draw">Drrraaaaaaaaaaww <a href="index.html">Home</a>
+    </div>
+
+    <a id="disc" href="playerDisc.html"></a>
     </main>
 
   
@@ -57,7 +69,7 @@
   src="https://code.jquery.com/jquery-3.6.0.min.js"
   integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
   crossorigin="anonymous"></script>
-  <script src="player1.js"></script>
+  <script src="player.js"></script>
  
 </body>
 </html>
