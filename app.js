@@ -3,13 +3,15 @@ const express = require('express');
 const cors = require('cors');
 const app = express();
 const mongoose= require('mongoose');
-const userModle= require('./modles/users');
-const Data= require('./modles/data');
+const userModle= require('./public/modles/users');
+const Data= require('./public/modles/data');
 const User= new Data(userModle);
 
 
 app.use(cors());
 app.set('view engine', 'html');
+
+app.use(express.urlencoded({ extended: true }));
 
 const PORT=3030;
 
@@ -24,6 +26,7 @@ function handleSignup(req,res){
 }
 
 function handleUsers(req,res){
+    console.log('helllllo');
     let body=req.body;
     let username=body.username;
     let password=body.password;
@@ -35,7 +38,8 @@ function handleUsers(req,res){
 
     User.creat(userObj);
     // ayoub should re direct tro join room route
-    res.redirect('/joinRoom');
+
+    res.redirect('index');
 
 }
 

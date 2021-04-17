@@ -9,6 +9,7 @@ let arr2 = []
 let symbol = ["O", "X"]
 let playerSymbol = "O";
 let press = 0;
+let check = false;
 $("#draw").hide()
 let x = [
   ["", '', ''],
@@ -56,8 +57,8 @@ $("#turn").text("Your Turn")
 
     press = value.press
     if (press == 9) {
-      $("#game").hide()
-      $("#draw").show()
+      // $("#game").hide()
+      $("#draw").show();
       socket.emit("draw",room)
     }
     $(".button").attr("disabled", false)
@@ -104,27 +105,29 @@ $("#turn").text("Your Turn")
     }
     let checking = detectTicTacToeWin(x)
     if (checking == playerSymbol) {
-      $("#game").hide()
+      // $("#game").hide()
       $("#wine").show()
       socket.emit("lose",room)
     }
     socket.emit("click", { arr: arr, press: press ,room:room})
   })
   socket.on("loser", () => {
-    $("#game").hide()
+    // $("#game").hide()
     $("#lose").show()
 
   })
   socket.on("playerDraw", () => {
-    $("#game").hide()
+    // $("#game").hide()
     $("#draw").show()
   })
   socket.on("playerDisc",function(){
     // $(this).load("playerDisc.html");
 
+    
     window.location.href = "./playerDisc.html";
+    // $("#wine").show();
 
-            console.log("disconnection")
+    // console.log("disconnection")
   })
 })
 ///-----function of game
